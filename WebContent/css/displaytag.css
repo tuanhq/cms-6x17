@@ -1,0 +1,156 @@
+a img.Navigation {
+	color: blue;
+	text-decoration: none;
+	border: none;
+}
+.grid-view {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.grid-view td {
+	padding: 4px 3px 3px 3px;
+	border: 0px solid black;
+	border-top: 1px solid black;
+}
+
+.grid-view td img {
+	cursor: pointer;
+}
+
+.grid-view pre {
+	padding: 0;
+	margin: 0;
+	color: Black;
+	font: normal 8pt tahoma;
+}
+
+.grid-view a {
+	cursor: pointer;
+	color: Blue;
+	font: normal 8pt tahoma;
+	text-decoration: none;
+}
+
+.grid-view th {
+	height: 20px;
+	padding: 2px 3px 2px 3px;
+	border: 0px solid black;
+	text-align: left;
+}
+
+.grid-view th a {
+	color: white;
+	font: 10pt tahoma;
+	text-align: center;
+}
+
+.grid-view th.header {
+	height: 20px;
+	border: 0px solid black;
+	text-align: center;
+	background-color: #3556a3;
+	font: normal 10pt tahoma;
+	color: white;
+	height: 24px;
+	vertical-align: middle;
+}
+
+.grid-view th.biggerContent {
+	height: 20px;
+	border: 0px solid black;
+	text-align: left;
+	background-color: #3556a3;
+	font: normal 10pt tahoma;
+	color: white;
+	height: 24px;
+	vertical-align: middle;
+}
+
+.grid-view th.sorted a,th.sortable a {
+	background-position: center;
+	display: block;
+	width: 100%;
+}
+
+.grid-view th.sortable a {
+	background-image: url(../img/arrow_off.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+.grid-view th.order1 a {
+	background-image: url(../img/arrow_up.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+.grid-view th.order2 a {
+	background-image: url(../img/arrow_down.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+.grid-view tr.header {
+	border: 0px solid black;
+	background-color: aqua;
+	text-align: left;
+	font: normal 7pt tahoma;
+	color: white;
+	height: 24px;
+	vertical-align: middle;
+}
+
+.grid-view tr.header a {
+	font: bold 7pt tahoma;
+	color: black;
+	height: 24px;
+	vertical-align: middle;
+}
+
+.grid-view tr.parent {
+	cursor: default;
+	font: bold 8pt tahoma;
+	color: Black;
+	line-height: 16px;
+	vertical-align: middle;
+}
+
+.grid-view tr.normal {
+	cursor: default;
+	font: normal 8pt tahoma;
+	color: Black;
+	background-color: #F7F6F3;
+	line-height: 16px;
+	vertical-align: middle;
+}
+
+.grid-view tr.alternate {
+	cursor: default;
+	font: normal 8pt tahoma;
+	color: Black;
+	background-color: #FFFFFF;
+	line-height: 16px;
+	vertical-align: middle;
+}
+
+.grid-view tr.normal:hover,.grid-view tr.alternate:hover {
+	background-color: #CCFFCC;
+	color: black;
+}
+
+.grid-view tr.selected {
+	font: normal 8pt tahoma;
+	background-color: #FFFFCC;
+	color: black;
+}
+
+.grid-view div.msgempty {
+	text-align: center;
+	font: bold 10pt tahoma;
+	color: red;
+}
