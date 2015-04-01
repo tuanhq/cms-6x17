@@ -1,9 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="display" uri="http://displaytag.sf.net"%>
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
-<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
-<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +7,6 @@
   <title>Trang chủ</title>
   <link rel="stylesheet" href="plugin/css/bootstrap.css">
   <link rel="stylesheet" href="plugin/css/main.css">
-  <link rel="stylesheet" href="css/displaytag.css" type="text/css">
-  <script type="text/javascript">
-	var rownum = 1;
-</script>
   
   </head>
 <body>
@@ -80,42 +71,15 @@
   </div>
 
   <div class="col-md-10">
-  		 <html:form action="/listCharge" method="post" >
-  		 <br/><br/>  		 
-  		 	CommandCode:<html:text property="cmc"></html:text>
-  		 	&nbsp; FromDate :<html:text property="t1"></html:text>&nbsp;
-  		 	ToDate :<html:text property="t1"></html:text>
-  		 	<html:submit value="Lọc"></html:submit>   
-  		 </html:form>
-		<display:table id="dto" class="grid-view"
-			name="requestScope.listChargingInfoForm.chargingInfoList"
-			size="requestScope.listChargingInfoForm.total"
-			requestURI="/listCharge.do" pagesize="20">
-			<display:column headerClass="header" title="<strong>STT</strong>"
-				style="width: 1%;text-align: center;font-weight: bold">
-				<script>
-					document.write(rownum++);
-				</script>
-			</display:column>
-			<display:column sortName="userId" headerClass="header"
-				style="width: 18%;overflow: hidden;text-align: center;font-size: 13px"
-				title="<span title='Sắp xếp tên'>Thuê bao</span>" sortable="true"
-				property="userId" />
-			<display:column sortName="serviceId" headerClass="header"
-				style="width: 18%;overflow: hidden;text-align: center;font-size: 13px"
-				title="<span title='Sắp xếp tên'>Đầu số</span>" sortable="true"
-				property="serviceId" />
-			<display:column sortName="commandCode" headerClass="header"
-				style="width: 18%;overflow: hidden;text-align: center;font-size: 13px"
-				title="<span title='Sắp xếp tên'>Cú pháp</span>" sortable="true"
-				property="commandCode" />
-			<display:column sortName="timeStamp1" headerClass="header"
-				style="width: 18%;overflow: hidden;text-align: center;font-size: 13px"
-				title="<span title='Sắp xếp tên'>Ngày nhắn tin </span>"
-				sortable="true" property="timeStamp1" />
-
-		</display:table>
-	</div>
+  <div class="gioi-thieu">
+            <h1 class="title">Rinh bộ ba - tết phát tài</h1>
+            <p>03 giải phát lộc trị giá <span>80.000.000</span> đồng/giải</p>
+            <p>03 giải phát tài trị giá <span>20.000.000</span> đồng/giải</p>
+            <p>12 giải lộc xuân trị giá <span>5.000.000</span> đồng/giải</p>
+            <p>90 giải may mắn trị giá <span>500.000</span> đồng/giải</p>
+            <p class="soan-tn">Soạn <span>DK</span> gửi <span>9170</span></p>
+        </div>
+  </div>
 
   <script src="plugin/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="plugin/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>

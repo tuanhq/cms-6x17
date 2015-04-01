@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net"%>
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
 
 </head>
 <body>
-	<table with="100%">
+	<table >
 		<tr>
 			<td colspan="2">Header</td>
 
@@ -23,22 +24,30 @@
 		<tr>
 			<td>Lefmenu</td>
 			<td><display:table id="dto" class="grid-view"
-					name="requestScope.listContentInfoForm.list"
-					requestURI="/listContent.do" pagesize="20"> 
+					name="requestScope.listChargingInfoForm.chargingInfoList"
+					requestURI="/listCharge.do" pagesize="20">
 					<display:column headerClass="header" title="<strong>STT</strong>"
 						style="width: 1%;text-align: center;font-weight: bold">
 						<script>
 							document.write(rownum++);
 						</script>
 					</display:column>
-					<display:column sortName="mo" headerClass="header"
+					<display:column sortName="userId" headerClass="header"
 						style="width: 18%;overflow: hidden;text-align: center;font-size: 13px"
-						title="<span title='Sắp xếp tên'>MO</span>" sortable="true"
-						property="mo" />
-					<display:column sortName="mt" headerClass="header"
+						title="<span title='Sắp xếp tên'>Thuê bao</span>" sortable="true"
+						property="userId" />
+					<display:column sortName="serviceId" headerClass="header"
 						style="width: 18%;overflow: hidden;text-align: center;font-size: 13px"
 						title="<span title='Sắp xếp tên'>Đầu số</span>" sortable="true"
-						property="mt" />					
+						property="serviceId" />
+					<display:column sortName="commandCode" headerClass="header"
+						style="width: 18%;overflow: hidden;text-align: center;font-size: 13px"
+						title="<span title='Sắp xếp tên'>Cú pháp</span>" sortable="true"
+						property="commandCode" />
+					<display:column sortName="timeStamp1" headerClass="header"
+						style="width: 18%;overflow: hidden;text-align: center;font-size: 13px"
+						title="<span title='Sắp xếp tên'>Ngày nhắn tin </span>"
+						sortable="true" property="timeStamp1" />
 
 				</display:table></td>
 		</tr>

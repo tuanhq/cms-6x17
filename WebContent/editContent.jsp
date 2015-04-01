@@ -14,7 +14,7 @@
 		<br />
 		MT: <html:text property="mt"></html:text>
 		<br />
-		<html:submit value="Đăng nhập"></html:submit>
+		<html:submit value="Add/Edit"></html:submit>
 	</html:form>
 </body>
 </html>

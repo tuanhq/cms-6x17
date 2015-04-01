@@ -49,6 +49,38 @@ public class ContentInfoDAO {
 			
 		
 	}
+	
+	public ContentInfo getDtoById(int id) throws ClassNotFoundException, SQLException{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		String strSQL = null;
+		ResultSet rs =null;		
+		ContentInfo dto =null;
+		try {
+			strSQL = "select * from content_info where 1=1 and id =?"; 
+			conn = ConnectionPool.getConnection();
+			stmt = conn.prepareStatement(strSQL);
+			stmt.setInt(1, id);
+			rs = stmt.executeQuery();
+			if ((rs != null) && rs.next()) {
+				dto = new ContentInfo();
+				dto.setMo(rs.getString("mo"));
+				dto.setMt(rs.getString("mt"));
+				dto.setActive(rs.getString("status"));
+				
+			}
+		}catch (Exception e) {
+			logger.error("insert: Errior executing " + strSQL + " >>> " + e.toString());
+			e.printStackTrace();
+		}finally {
+			ConnectionPool.putConnection(conn);
+			stmt.close();
+			rs.close();
+		}
+		return dto;
+			
+		
+	}
 
 	public int editContentInfo(ContentInfo dto)throws ClassNotFoundException, SQLException {
 
@@ -83,6 +115,34 @@ public class ContentInfoDAO {
 		return result;
 	
 	}
+	public boolean deleteDtoById(int id) throws ClassNotFoundException, SQLException{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		String strSQL = null;
+		boolean result =false;	
+	
+		
+		try {
+			strSQL = "delete from content_info where 1=1 and id =?"; 
+			conn = ConnectionPool.getConnection();
+			stmt = conn.prepareStatement(strSQL);
+			stmt.setInt(1, id);
+			result = stmt.executeUpdate() >0;
+			
+		}catch (Exception e) {
+			logger.error("insert: Errior executing " + strSQL + " >>> " + e.toString());
+			e.printStackTrace();
+		}finally {
+			ConnectionPool.putConnection(conn);
+			stmt.close();
+			
+		}
+		return result;
+			
+		
+	}
+	
+	
 	public static void main(String[] args) {
 		try {
 			ArrayList<ContentInfo> list = new ContentInfoDAO().getList();
@@ -95,6 +155,9 @@ public class ContentInfoDAO {
 			dto.setMo("KEP2");
 			dto.setMt("Vay day la kep 2");
 			new ContentInfoDAO().editContentInfo(dto);
+			
+		  new ContentInfoDAO().deleteDtoById(1);
+		 System.out.println(dto.getMo() + "MT:" + dto.getMt());	
 			
 		} catch (Exception e) {
 			// TODO: handle exception

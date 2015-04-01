@@ -120,21 +120,21 @@ public class ChargingInfoDAO {
 		ArrayList<ChargingInfo> list = new ArrayList<ChargingInfo>();
 		ChargingInfo dto =null;
 		try {
-			strSQL = "select * from charging_info where 1=1 ";
-			if(fromDate!=null){
-				strSQL = strSQL + " and timestamp1 >='"+ fromDate + "'";
+			strSQL = "select * from charging_info where 1 ";
+			if(fromDate!=null && ! fromDate.equalsIgnoreCase("") ){
+				strSQL = strSQL + " and timestamp1>='"+ fromDate + "000000'";
 			}
-			if(toDate!=null){
-				strSQL = strSQL  + " and timestamp1 <='"+ fromDate + "'"; 
+			if(toDate!=null && ! toDate.equalsIgnoreCase("")){
+				strSQL = strSQL  + " and timestamp1 <='"+ fromDate + "000000'"; 
 			}
-			if(commandCode != null) {
-				strSQL = strSQL  +" upper(command_code)='" + commandCode.toUpperCase() + "'";
+			if(commandCode != null && !commandCode.equalsIgnoreCase("")) {
+				strSQL = strSQL  +" and upper(command_code) like '%" + commandCode.toUpperCase() + "%';";
 			}
 			 
 			conn = ConnectionPool.getConnection();
 			stmt = conn.prepareStatement(strSQL);
 			rs = stmt.executeQuery();
-			while ((rs != null) && rs.next()) {
+			while (rs.next()) {
 				dto = new ChargingInfo();
 				dto.setUserId(rs.getString("user_id"));
 				dto.setServiceId(rs.getString("service_id"));
@@ -172,7 +172,7 @@ public class ChargingInfoDAO {
 				strSQL = strSQL  + " and timestamp1 <='"+ fromDate + "'"; 
 			}
 			if(commandCode != null) {
-				strSQL = strSQL  +" upper(command_code)='" + commandCode.toUpperCase() + "'";
+				strSQL = strSQL  +" and upper(command_code)='" + commandCode.toUpperCase() + "'";
 			}
 			 
 			conn = ConnectionPool.getConnection();

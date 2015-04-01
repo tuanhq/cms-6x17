@@ -30,7 +30,8 @@
 		<action attribute="listContentInfoForm" name="listContentInfoForm"
 			path="/editContent" scope="request" type="org.thq.action.EditContentInfoAction"
 			cancellable="true">			
-			<forward name="list" path="/editContent.jsp"></forward>
+			<forward name="edit" path="/editContent.jsp"></forward>
+			<forward name="list" path="/listContent.jsp"></forward>
 		</action>
 		
 	</action-mappings>

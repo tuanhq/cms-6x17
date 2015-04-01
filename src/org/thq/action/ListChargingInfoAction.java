@@ -27,8 +27,11 @@ public class ListChargingInfoAction extends Action{
 		String fromDate = request.getParameter("t1");
 		String toDate = request.getParameter("t2");
 		try {
-			ArrayList<ChargingInfo> list = new ChargingInfoDAO().getLists(fromDate, toDate, commandCode);
+			ChargingInfoDAO chargingDAO = new ChargingInfoDAO();			
+			ArrayList<ChargingInfo> list = chargingDAO.getLists(fromDate, toDate, commandCode);
+			int total = chargingDAO.getListsSize(fromDate, toDate, commandCode);
 			((ListChargingInfoForm)form).setChargingInfoList(list);
+			((ListChargingInfoForm)form).setTotal(total);
 			return mapping.findForward("list");
 		} catch (Exception e) {
 			// TODO: handle exception

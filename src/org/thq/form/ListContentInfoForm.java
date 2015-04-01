@@ -13,12 +13,27 @@ import org.thq.business.ContentInfo;
  *
  */
 public class ListContentInfoForm extends ActionForm{
+	int id;
 	String mo;
 	String mt;
 	String prefix;
 	String active;
 	ArrayList<ContentInfo> list;
 	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	/**
 	 * @return the mo
 	 */
