@@ -23,15 +23,15 @@
   <nav class="navbar navbar-inverse" style="margin-bottom: 0px" >
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/listCharge.do">Trang chủ</a>
+        <a class="navbar-brand" href="<%=request.getContextPath()%>/listCharge.do">Trang chủ</a>
       </div>
       <div>
         <ul class="nav navbar-nav">          
           <li>
-            <a href="/listContent.do">Danh sách nội dung</a>
+            <a href="<%=request.getContextPath()%>/listContent.do">Danh sách nội dung</a>
           </li>
           <li>
-            <a href="/editContent.do?action=add">Thêm mới nội dung</a>
+            <a href="<%=request.getContextPath()%>/editContent.do?action=add">Thêm mới nội dung</a>
           </li>
           <li>
             <a href="giaithuong.html">Giải thưởng</a>
@@ -59,13 +59,13 @@
   <div class="col-md-2" style="padding-left: 0px ">
   <ul class="nav nav-pills nav-stacked">
          <li class="active">
-            <a href="/listCharge.do">Danh sách charging</a>
+            <a href="<%=request.getContextPath()%>/listCharge.do">Danh sách charging</a>
           </li>
           <li class="active">
-            <a href="/listContent.do">Danh sách nội dung</a>
+            <a href="<%=request.getContextPath()%>/listContent.do">Danh sách nội dung</a>
           </li>
           <li class="active">
-            <a href="/editContent.do?action=add">Thêm mới nội dung</a>
+            <a href="<%=request.getContextPath()%>/editContent.do?action=add">Thêm mới nội dung</a>
           </li>
           <li class="active">
             <a href="FAQs.html">FAQs</a>

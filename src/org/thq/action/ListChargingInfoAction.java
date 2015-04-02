@@ -23,6 +23,9 @@ import org.thq.form.ListChargingInfoForm;
 public class ListChargingInfoAction extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response){
+		if (request.getSession().getAttribute("onlineUser")==null){
+			return new ActionForward("/login.do",true);
+		}
 		String commandCode = request.getParameter("cmc");
 		String fromDate = request.getParameter("t1");
 		String toDate = request.getParameter("t2");

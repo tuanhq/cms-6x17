@@ -21,7 +21,7 @@
 		<br>
 		<html:form action="/login" method="post">
 			<html:text property="userName"></html:text>
-			<html:text property="passWord"></html:text>
+			<html:password property="passWord"></html:password>
 			<html:submit value="Đăng nhập"></html:submit>
 		</html:form>
 

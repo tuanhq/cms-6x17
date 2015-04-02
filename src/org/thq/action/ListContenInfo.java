@@ -27,6 +27,9 @@ public class ListContenInfo extends Action{
 @Override
 public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 	try {
+		if (request.getSession().getAttribute("onlineUser")==null){
+			return new ActionForward("/login.do",true);
+		}
 		ArrayList<ContentInfo> list = new ContentInfoDAO().getList();
 		((ListContentInfoForm)form).setList(list);
 		return mapping.findForward("list");

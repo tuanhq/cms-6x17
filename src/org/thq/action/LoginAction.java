@@ -10,6 +10,7 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.thq.business.User;
 
 
 
@@ -22,7 +23,11 @@ public class LoginAction extends Action{
 			HttpServletRequest request, HttpServletResponse response){
 		String userName = request.getParameter("userName");
 		String passWord = request.getParameter("passWord");
-		if(userName.equalsIgnoreCase("tuanhq") && passWord.equals("123456")){
+		if("6x17".equalsIgnoreCase(userName) && "123456".equalsIgnoreCase(passWord)){
+			User user = new User();
+			user.setUser(userName);
+			user.setPass(passWord);
+			request.getSession().setAttribute("onlineUser", user);			
 			return new ActionForward("/listCharge.do",true);
 		}else{
 			return mapping.findForward("failure");

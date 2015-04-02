@@ -32,6 +32,7 @@ public class ContentInfoDAO {
 			rs = stmt.executeQuery();
 			while ((rs != null) && rs.next()) {
 				dto = new ContentInfo();
+				dto.setId(rs.getInt("id"));
 				dto.setMo(rs.getString("mo"));
 				dto.setMt(rs.getString("mt"));
 				dto.setActive(rs.getString("status"));

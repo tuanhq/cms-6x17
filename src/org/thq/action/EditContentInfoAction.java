@@ -30,12 +30,15 @@ public class EditContentInfoAction extends Action {
 	 */
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		
+		if (request.getSession().getAttribute("onlineUser")==null){
+			return new ActionForward("/login.do",true);
+		}
 		ListContentInfoForm listContentInfo = (ListContentInfoForm) form;
 		String method = request.getMethod();
 		String action = request.getParameter("action");
 		String mo = request.getParameter("mo");
-		String mt = request.getParameter("mo");
+		String mt = request.getParameter("mt");
 		if ("GET".equalsIgnoreCase(method)) {// first request
 
 			if ("add".equalsIgnoreCase(action)) {
